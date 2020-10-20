@@ -13,13 +13,18 @@ public class OrderController {
         this.view = view;
     }
 
-    public void setPizzas(ArrayList<String> pizzas){
+    public void setPizzas(String[] pizzas){
         pizzaModel.setPizzas(pizzas);
     }
-    public ArrayList<String> getPizzas(){
+    public String[] getPizzas(){
         return pizzaModel.getPizzas();
     }
-
+    public void setPizzaName(String pizzaName){
+        pizzaModel.setPizzaName(pizzaName);
+    }
+    public String getPizzaName(){
+        return pizzaModel.getPizzaName();
+    }
     public void setSizePizza(double sizePizza){
         pizzaModel.setSizePizza(sizePizza);
     }
@@ -32,16 +37,10 @@ public class OrderController {
     public int getNumOfPizza(){
         return pizzaModel.getNumOfPizza();
     }
-    public void setAdditions(ArrayList<String> additions){
-        pizzaModel.setAdditions(additions);
-    }
-    public ArrayList<String> getAdditions(){
-        return pizzaModel.getAdditions();
-    }
-    public void setMyPizzaIngName(ArrayList<String> myPizzaIngName){
+    public void setMyPizzaIngName(String[] myPizzaIngName){
         pizzaModel.setMyPizzaIngName(myPizzaIngName);
     }
-    public ArrayList<String> getMyPizzaIngName(){
+    public String[] getMyPizzaIngName(){
         return pizzaModel.getMyPizzaIngName();
     }
     public void setName(String name){
@@ -57,6 +56,6 @@ public class OrderController {
         return userModel.getAddress();
     }
     public void updateView() {
-        view.printDetails( pizzaModel.getPizzas(),pizzaModel.getSizePizza(),pizzaModel.getNumOfPizza(),pizzaModel.getAdditions(), userModel.getName(), userModel.getAddress(),pizzaModel.getMyPizzaIng());
+        view.printDetails( pizzaModel.getPizzas(),pizzaModel.getPizzaName(),pizzaModel.getSizePizza(),pizzaModel.getNumOfPizza(), userModel.getName(), userModel.getAddress(),pizzaModel.getMyPizzaIng());
     }
 }

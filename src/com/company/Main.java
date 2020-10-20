@@ -1,16 +1,32 @@
 package com.company;
 import java.util.ArrayList;
 public class Main {
+
     public static void main(String[] args) {
-        Pizza model1  = new Pizza();
-        User model2 = new User();
-        //Create a view : to write student details on console
+        Pizza pizzaModel = retrivePizzaFromDatabase();
+        User userModel = retriveUserFromDatabase();
         OrderView view = new OrderView();
-
-
-        OrderController controller = new OrderController(model1,model2 ,view);
-
+        OrderController controller = new OrderController(pizzaModel, userModel, view);
         controller.updateView();
+
+
     }
 
+    private static Pizza retrivePizzaFromDatabase() {
+        Pizza pizza = new Pizza();
+        pizza.setPizzaName("Маргарита");
+
+        pizza.setSizePizza(20);
+        pizza.setNumOfPizza(2);
+        return pizza;
+    }
+
+    private static User retriveUserFromDatabase() {
+        User user = new User();
+        user.setName("Alex");
+        user.setAddress("");
+        return user;
+    }
 }
+
+
